@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <title>{{.PageTitle}}</title></head>
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $('form').submit();
+    });
+</script>
+<body>
+{{with $1:=.FormElements}}
+<p>Signup Form</p>
+
+<form action="/selected" method="post">
+    {{range $1}}
+    <div>
+        <label>{{.Text}}</label>
+        <input type="text" placeholder="{{.PlaceHolder}}" name={{.Name}} value="">
+    </div>
+    {{end}}
+    <input type="submit" name="submit" value="Submit Form"/>
+</form>
+{{end}}
+
+
+</body>
+</html>
